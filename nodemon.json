@@ -1,0 +1,6 @@
+{
+  "watch": ["src/**/*"],
+  "ext": ".ts",
+  "ignore": [],
+  "exec": "rm -rf ./build && tsc --build"
+}
