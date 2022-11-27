@@ -1,8 +1,2 @@
 # node_modules
 /node_modules
-
-# test
-/__test__
-
-# build
-/build

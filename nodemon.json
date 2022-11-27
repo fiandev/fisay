@@ -1,5 +1,8 @@
 {
-  "watch": ["src/**/*"],
+  "watch": [
+    "src/**/*",
+    "mixin/*.scss"
+  ],
   "ext": ".ts",
   "ignore": [],
   "exec": "rm -rf ./build && tsc --build"

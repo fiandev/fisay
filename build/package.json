@@ -1,0 +1,42 @@
+{
+    "name": "fisay",
+    "version": "0.0.1",
+    "description": "a css framework like tailwind css",
+    "main": "src/index.js",
+    "scripts": {
+        "build": "rm -rf ./build && tsc --build && echo 'build success :)'",
+        "test": "fisay compile -i ./__test__/index.html -o ./__test__/css/style.css",
+        "test2": "fisay compile -i ./__test__/test_folder -o ./__test__/test_folder/css/style.css",
+        "dev": "./node_modules/.bin/nodemon"
+    },
+    "bin": {
+        "fisay": "./bin/fisay"
+    },
+    "directories": {
+        "src": "src"
+    },
+    "keywords": [
+        "css",
+        "framework",
+        "js",
+        "nodejs",
+        "saas",
+        "scss",
+        "fisay"
+    ],
+    "author": "fiandev",
+    "license": "MIT",
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.12",
+        "commander": "^9.4.1",
+        "fs-extra": "^10.1.0",
+        "fs-readdir-recursive": "^1.1.0",
+        "node-watch": "^0.7.3"
+    },
+    "devDependencies": {
+        "@types/node": "^18.11.9",
+        "@types/require-all": "^3.0.3",
+        "nodemon": "^2.0.20",
+        "require-all": "^3.0.0"
+    }
+}

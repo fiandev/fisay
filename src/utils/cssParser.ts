@@ -17,11 +17,17 @@ const cssParser = (syntax: string, output: string) => {
         fs.mkdirSync( outdir );
         fs.writeFileSync(fileSass, syntax);
         child_process.exec(`sass ${ fileSass } ${ output }`);
+        
+        console.error(e.message)
       }
     }
+    
+    /* delete blob of sass */
+    fs.unlinkSync(fileSass);
+    console.log("task completed!");
   } catch(e) {
-    console.error(e)
+    console.error(e);
   }
 }
 
-export = cssParser
+export = cssParser;

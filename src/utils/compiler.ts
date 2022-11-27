@@ -8,6 +8,7 @@ import breakpointParser from "./breakpointParser";
 import cssParser from "./cssParser";
 
 const compiler = async (input: string, output: string) => {
+  
   const blob = fs.readFileSync(path.resolve(input));
   const $ = cheerio.load(blob);
   

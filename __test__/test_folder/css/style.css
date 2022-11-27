@@ -1,0 +1,46 @@
+//the name of the mixin is devices
+@mixin devices ($breakpoint) { 
+  
+  @if $breakpoint == verySmall {    
+    @media only screen and (min-width: 0px) {
+      @content;
+    }
+  }
+  @if $breakpoint == small {    
+    @media only screen and (min-width: 575px) {
+      @content;
+    }
+  }
+  
+  @if $breakpoint == medium {    
+    @media only screen and (min-width: 575px) {
+      @content;
+    }
+  }
+  
+  @if $breakpoint == large {    
+    @media only screen and (min-width: 992px) {
+      @content;
+    }
+  }
+  
+  @if $breakpoint == veryLarge {    
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+  
+  @if $breakpoint == superLarge {    
+    @media only screen and (min-width: 1400px) {
+      @content;
+    }
+  }
+}* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  
+}.grid {display: grid;}.flex {display: flex;}.flex {display: flex;}.justify-center {justify-content: center;}

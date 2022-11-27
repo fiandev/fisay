@@ -8,7 +8,13 @@ const scripts = require('require-all')({
   filter: /^(\S)+.js/
 });
 
-globalThis.blob = fs.readFileSync(path.join(__dirname, "/../../template/breakpoint.scss"));
+const mixinFiles = fs.readdirSync(path.join(__dirname, "/../../mixin"));
+
+/* includes mixin scss files */
+for (let mixinFile of mixinFiles) {
+  globalThis.blob += fs.readFileSync(path.join(__dirname, `/../../mixin/${ mixinFile }`));
+}
+
 export = {
   pkg,
   scripts

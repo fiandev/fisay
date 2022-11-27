@@ -1,12 +1,13 @@
 import observer from "node-watch";
+import path from "path";
 
-const watcher = async (path: string, callback: Function) => {
+const watcher = async (pathTarget: string, callback: Function) => {
   callback()
-  observer(path, { 
+  observer(pathTarget, { 
     filter: /\.(htm(l)|js|jsx|vue|php)$/,
     recursive: true
   }, function(event, filename){
-    console.log(`${filename} ${event}`)
+    console.log(`${ path.basename(filename) } ${event}`)
     callback()
   });
 }

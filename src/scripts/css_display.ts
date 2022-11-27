@@ -1,5 +1,5 @@
 const css_display = (attr: string) => {
-  const format = /^(flex|block|grid|table|inline-table|inline-block)\-?(\w+)?/
+  const format = /^(flex|block|grid|table|inline-table|inline-block)$/
   let match = attr.match(format);
   
   if (!match) return false;
