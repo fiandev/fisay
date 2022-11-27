@@ -1,16 +1,5 @@
-<p align="center">
-  <a href="#" target="_blank">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="">
-      <source media="(prefers-color-scheme: light)" srcset="">
-      <img alt="fisay CSS" src="" width="350" height="70" style="max-width: 100%;">
-    </picture>
-  </a>
-</p>
-
-<p align="center">
-  A framework css like a tailwind and have template like boostrap.
-</p>
+# fisay css
+A framework css like a tailwind and have template like boostrap.
 
 ------
 
