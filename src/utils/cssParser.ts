@@ -12,19 +12,19 @@ const cssParser = (syntax: string, output: string) => {
       try {
         fs.writeFileSync(output, syntax);
         fs.writeFileSync(fileSass, syntax);
-        child_process.exec(`sass ${ fileSass } ${ output }`);
+        child_process.exec(`sass ${ fileSass } ${ output }`, (err, stdout, stderr) => console.log(stdout) );
       } catch(e) {
         fs.mkdirSync( outdir );
         fs.writeFileSync(fileSass, syntax);
-        child_process.exec(`sass ${ fileSass } ${ output }`);
+        child_process.exec(`sass ${ fileSass } ${ output }`, (err, stdout, stderr) => console.log(stdout) );
         
         console.error(e.message)
+      } finally {
+        /* delete blob of sass */
+        console.log("task completed!");
       }
     }
     
-    /* delete blob of sass */
-    fs.unlinkSync(fileSass);
-    console.log("task completed!");
   } catch(e) {
     console.error(e);
   }

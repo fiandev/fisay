@@ -14,18 +14,19 @@ const cssParser = (syntax, output) => {
             try {
                 fs_1.default.writeFileSync(output, syntax);
                 fs_1.default.writeFileSync(fileSass, syntax);
-                child_process_1.default.exec(`sass ${fileSass} ${output}`);
+                child_process_1.default.exec(`sass ${fileSass} ${output}`, (err, stdout, stderr) => console.log(stdout));
             }
             catch (e) {
                 fs_1.default.mkdirSync(outdir);
                 fs_1.default.writeFileSync(fileSass, syntax);
-                child_process_1.default.exec(`sass ${fileSass} ${output}`);
+                child_process_1.default.exec(`sass ${fileSass} ${output}`, (err, stdout, stderr) => console.log(stdout));
                 console.error(e.message);
             }
+            finally {
+                /* delete blob of sass */
+                console.log("task completed!");
+            }
         }
-        /* delete blob of sass */
-        fs_1.default.unlinkSync(fileSass);
-        console.log("task completed!");
     }
     catch (e) {
         console.error(e);

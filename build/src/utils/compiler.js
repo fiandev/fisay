@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -18,7 +9,7 @@ const Memories_1 = __importDefault(require("../lib/Memories"));
 const propertiesParser_1 = __importDefault(require("./propertiesParser"));
 const breakpointParser_1 = __importDefault(require("./breakpointParser"));
 const cssParser_1 = __importDefault(require("./cssParser"));
-const compiler = (input, output) => __awaiter(void 0, void 0, void 0, function* () {
+const compiler = async (input, output) => {
     const blob = fs_1.default.readFileSync(path_1.default.resolve(input));
     const $ = cheerio_1.default.load(blob);
     // resolving path output
@@ -47,5 +38,5 @@ const compiler = (input, output) => __awaiter(void 0, void 0, void 0, function* 
     }
     const blobCSS = globalThis.blob.replace(/(undefined)/g, "");
     (0, cssParser_1.default)(blobCSS, __output__);
-});
+};
 module.exports = compiler;

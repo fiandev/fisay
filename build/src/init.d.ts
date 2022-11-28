@@ -4,6 +4,9 @@ declare const _default: {
         version: string;
         description: string;
         main: string;
+        repository: string;
+        bugs: string;
+        homepage: string;
         scripts: {
             build: string;
             test: string;
@@ -20,6 +23,7 @@ declare const _default: {
         author: string;
         license: string;
         dependencies: {
+            chalk: string;
             cheerio: string;
             commander: string;
             "fs-extra": string;

@@ -3,7 +3,7 @@ import { Command } from "commander";
 import init from "../init";
 import watcher from "../utils/watcher";
 import Compiler from "../lib/Compiler";
-
+import message from "../lib/Message"
 /* initilize */
 const { pkg } = init;
 const program = new Command();
@@ -16,17 +16,22 @@ globalThis.pwd = pwd;
 program
 .name(pkg.name)
 .usage("<command> [options]")
+.argument("<command>", "command to execute")
 .version(pkg.version, "-v, --version", "show app version")
 .showSuggestionAfterError()
 .helpOption("-h, --help", "show help menu");
 
 program
 .command("compile")
-.description("compiled html class to css")
-.option("-i, --input [input]", "path file input to compile")
-.option("-o, --output [output]", "path file output from compile")
+.usage("[options]")
+.description("read file to conpile class selector into css")
+.option("-i, --input <input>", "path file input to compile")
+.option("-o, --output <output>", "path file output from compile")
 .option("-w, --watch [watch]", "path file / folder watched")
 .action((options) => {
+  if (!options.input) message.danger("need options input [-i, --input]");
+  if (!options.output) message.danger("need options input [-o, --output]");
+  
   let input = options.input ? path.join(pwd, options.input) : "./";
   let output = options.output ? path.join(pwd, options.output) : "./output";
   let isWatched = options.watch ? true : false;

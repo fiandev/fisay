@@ -7,6 +7,7 @@ const commander_1 = require("commander");
 const init_1 = __importDefault(require("../init"));
 const watcher_1 = __importDefault(require("../utils/watcher"));
 const Compiler_1 = __importDefault(require("../lib/Compiler"));
+const Message_1 = __importDefault(require("../lib/Message"));
 /* initilize */
 const { pkg } = init_1.default;
 const program = new commander_1.Command();
@@ -17,16 +18,22 @@ globalThis.pwd = pwd;
 program
     .name(pkg.name)
     .usage("<command> [options]")
+    .argument("<command>", "command to execute")
     .version(pkg.version, "-v, --version", "show app version")
     .showSuggestionAfterError()
     .helpOption("-h, --help", "show help menu");
 program
     .command("compile")
-    .description("compiled html class to css")
-    .option("-i, --input [input]", "path file input to compile")
-    .option("-o, --output [output]", "path file output from compile")
+    .usage("[options]")
+    .description("read file to conpile class selector into css")
+    .option("-i, --input <input>", "path file input to compile")
+    .option("-o, --output <output>", "path file output from compile")
     .option("-w, --watch [watch]", "path file / folder watched")
     .action((options) => {
+    if (!options.input)
+        Message_1.default.danger("need options input [-i, --input]");
+    if (!options.output)
+        Message_1.default.danger("need options input [-o, --output]");
     let input = options.input ? path_1.default.join(pwd, options.input) : "./";
     let output = options.output ? path_1.default.join(pwd, options.output) : "./output";
     let isWatched = options.watch ? true : false;

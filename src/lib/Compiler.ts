@@ -57,7 +57,7 @@ export default class {
     const memories = globalThis.memory;
     
     // normal breakpoint
-    memories["normal"].map(v => propertiesParser(v));
+    memories["normal"]?.map(v => propertiesParser(v));
     delete globalThis.memory["normal"];
     
     // breakpoint
