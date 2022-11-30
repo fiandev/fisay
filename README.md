@@ -2,6 +2,30 @@
 A framework css like a tailwind and have template like boostrap.
 
 ------
+# how to usage
+
+## installation
+
+```shell
+# clone git repository
+git clone https://github.com/fiandev/fisay
+
+# entering repository project
+cd fisay
+
+# install required dependencies
+npm install
+```
+
+## compile file html to css
+
+```shell
+# example command
+fisay compile <input> <output> [options]
+
+# show list of commands
+fisay --help
+```
 
 ## Documentation
 

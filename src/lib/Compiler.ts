@@ -54,7 +54,7 @@ export default class {
       if (typeof attrClass !== "undefined") new Memories(attrClass);
     }) 
     
-    const memories = globalThis.memory;
+    const memories = globalThis.memory; 
     
     // normal breakpoint
     memories["normal"]?.map(v => propertiesParser(v));

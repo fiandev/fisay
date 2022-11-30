@@ -1,5 +1,5 @@
 export default class {
-    constructor(text: any);
+    constructor(attrClass: any);
     private isBreakPoint;
     private isNormalScope;
     private push;

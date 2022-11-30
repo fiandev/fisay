@@ -30,8 +30,7 @@ const path_1 = __importDefault(require("path"));
 const pkg = __importStar(require("../package.json"));
 const scripts = require('require-all')({
     dirname: path_1.default.join(__dirname, "/scripts"),
-    recursive: true,
-    filter: /^(\S)+.js/
+    recursive: true
 });
 const mixinFiles = fs_1.default.readdirSync(path_1.default.join(__dirname, "/../../mixin"));
 /* includes mixin scss files */

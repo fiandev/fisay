@@ -1,18 +1,10 @@
 import init from "../init";
 import propertiesParser from "./propertiesParser";
+import breakpointFormat from "../constants/breakpointFormat";
 const { scripts } = init;
 
-const breakpointFormat = {
-  xs: "verySmall",
-  sm: "small",
-  md: "medium",
-  lg: "large",
-  xl: "veryLarge",
-  xxl: "superLarge"
-}
-
 const breakpointParser = (breakpoint: string, items: string[]) => {
-  const device = breakpointFormat[breakpoint];
+  const device = breakpointFormat[breakpoint] ? breakpointFormat[breakpoint] : "small";
   let syntax = "";
   syntax += `@include devices(${ device }) {`
   for (let item of items) {

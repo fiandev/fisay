@@ -1,8 +1,9 @@
 {
     "name": "fisay",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "a css framework like tailwind css",
     "main": "build/src/index.js",
+    "private": true,
     "repository": "https://github.com/fiandev/fisay.git",
     "bugs": "https://github.com/fiandev/fisay/issues",
     "homepage": "https://github.com/fiandev/fisay#readme",

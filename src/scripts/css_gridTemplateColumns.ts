@@ -1,5 +1,5 @@
 const css_gridTemplateColumns = (attr: string) => {
-  const format = /^(grid-cols)-([1-12])+/
+  const format = /^(grid-cols)-(\d)+/
   let match = attr.match(format);
   
   if (!match) return false;

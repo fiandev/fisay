@@ -4,8 +4,7 @@ import * as pkg from '../package.json';
 
 const scripts = require('require-all')({
   dirname: path.join(__dirname, "/scripts"),
-  recursive: true,
-  filter: /^(\S)+.js/
+  recursive: true
 });
 
 const mixinFiles = fs.readdirSync(path.join(__dirname, "/../../mixin"));

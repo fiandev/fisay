@@ -1,26 +1,32 @@
 export default class {
-  public constructor(text: any) {
-    let isBreakPoint = this.isBreakPoint(text);
-    let isNormalScope = this.isNormalScope(text);
-    if (isBreakPoint) {
-      let [captures, breakpoint, attrs] = isBreakPoint;
-      if (!globalThis.memory[breakpoint]) globalThis.memory[breakpoint] = [];
-      this.push(breakpoint, attrs.split(" "));
-    }
-    
-    if (isNormalScope) {
-      if (!globalThis.memory["normal"]) globalThis.memory["normal"] = [];
-      this.push("normal", text.split(" "));
+  public constructor(attrClass: any) {
+    let attrs = attrClass.split(/(\,|\;|\|)/)
+    for (let attr of attrs) {
+      
+      let isBreakPoint = this.isBreakPoint(attr);
+      let isNormalScope = this.isNormalScope(attr);
+      
+      if (isBreakPoint) {
+        let [captures, breakpoint, scopes] = isBreakPoint;
+        if (!globalThis.memory[breakpoint]) globalThis.memory[breakpoint] = [];
+        this.push(breakpoint, scopes.split(" "));
+      }
+      
+      if (isNormalScope) {
+        if (!globalThis.memory["normal"]) globalThis.memory["normal"] = [];
+        this.push("normal", attr.split(" "));
+        
+      }
       
     }
   }
   
   private isBreakPoint(text: any) {
-    return text.match(/(\w+):\s?((\w|\-|\s)+)/);
+    return text.match(/\s?(\w+):\s?((\w|\-|\s)+)/);
   }
   
   private isNormalScope(text: any) {
-    return !/(\w+):\s?((\w|\-|\s)+)/.test(text);
+    return !/\s?(\w+):\s?((\w|\-|\s)+)/.test(text);
   }
   
   private push(key: string, items: string[]) {

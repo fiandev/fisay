@@ -4,6 +4,7 @@ declare const _default: {
         version: string;
         description: string;
         main: string;
+        private: boolean;
         repository: string;
         bugs: string;
         homepage: string;
