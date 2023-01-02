@@ -2,8 +2,9 @@ import path from "path";
 import cheerio from "cheerio";
 import fs from "fs";
 import fsx from "fs-extra";
-import readDirectory from "fs-readdir-recursive";
+import readdir from "fs-readdir-recursive";
 import Memories from "./Memories";
+import Message from "./Message";
 import propertiesParser from "../utils/propertiesParser";
 import breakpointParser from "../utils/breakpointParser";
 import cssParser from "../utils/cssParser";
@@ -20,12 +21,16 @@ export default class {
   
   public run () {
     /* check if target input is directory */
-    if (fs.lstatSync(this.input).isDirectory()) this.parseDirectory(this.input);
+    let isDir = fs.lstatSync(this.input).isDirectory();
+    if (isDir) this.parseDirectory(this.input);
     else this.compile(this.input);
+    
+    Message.warning(`task completed!`);
+    Message.success(`success compile ${ isDir ? "directory" : "file" } at ${ path.basename(this.input) }`);
   }
   
   private async parseDirectory (input: string) {
-    const files = readDirectory(input);
+    const files = readdir(input);
     
     files.forEach(file => {
       let pathfile = path.join(this.input, `/${ file }`);

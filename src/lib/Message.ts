@@ -1,7 +1,7 @@
 import chalk from "chalk";
 
 class Message {
-  private generate(text: string, color: string, option: string = "normal") {
+  public generate(text: string, color: string, option: string = "normal") {
     return option == "normal" ? chalk.hex(color)(text) : chalk.hex(color)[option](text);
   }
   
@@ -16,6 +16,14 @@ class Message {
   
   public info (text: string) {
     this.console( this.generate(text, "#00ff13") );
+  }
+  
+  public warning (text: string) {
+    this.console( this.generate(text, "#feff08") );
+  }
+  
+  public success (text: string) {
+    this.console( this.generate(text, "#08b835") );
   }
 }
 

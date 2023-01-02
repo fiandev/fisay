@@ -1,6 +1,6 @@
 export default class {
-  public constructor(attrClass: any) {
-    let attrs = attrClass.split(/(\,|\;|\|)/)
+  public constructor(attrClass: string) {
+    let attrs = attrClass.split(/\s/)
     for (let attr of attrs) {
       
       let isBreakPoint = this.isBreakPoint(attr);
