@@ -1,3 +1,4 @@
+/* the name of the mixin is devices */
 * {
   padding: 0;
   margin: 0;
@@ -11,16 +12,41 @@
   display: grid;
 }
 
-.flex {
-  display: flex;
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .flex {
   display: flex;
+}
+
+.items-center {
+  align-items: center;
 }
 
 .justify-center {
   justify-content: center;
+}
+
+@media only screen and (min-width: 575px) {
+  .md:grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media only screen and (min-width: 575px) {
+  .sm:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (min-width: 992px) {
+  .lg:grid-cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .xl:grid-cols-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

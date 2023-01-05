@@ -1,0 +1,7 @@
+const specialCharacters = [
+  ":",
+  "[",
+  "]"
+];
+
+export = specialCharacters;

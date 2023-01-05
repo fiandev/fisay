@@ -1,6 +1,6 @@
 {
   "name": "fisay",
-  "version": "0.0.3",
+  "version": "0.1.0-development",
   "description": "a css framework like tailwind css",
   "main": "build/src/index.js",
   "private": true,
@@ -10,7 +10,8 @@
   "scripts": {
     "build": "rm -rf ./build && tsc --build && echo 'build success :)'",
     "test": "fisay compile -i ./__test__/index.html -o ./__test__/css/style.css",
-    "test2": "fisay compile -i ./__test__/test_folder -o ./__test__/test_folder/css/style.css",
+    "test2": "fisay compile -i ./__test__/test_folder -o ./__test__/css/style.css",
+    "test3": "fisay compile -i ./__test__/ -o ./__test__/css/new.css -w",
     "dev": "./node_modules/.bin/nodemon"
   },
   "bin": {

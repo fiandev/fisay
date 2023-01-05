@@ -1,6 +1,8 @@
 import init from "../init";
 import propertiesParser from "./propertiesParser";
+import addSlashes from "./addSlashes";
 import breakpointFormat from "../constants/breakpointFormat";
+
 const { scripts } = init;
 
 const breakpointParser = (breakpoint: string, items: string[]) => {
@@ -11,7 +13,8 @@ const breakpointParser = (breakpoint: string, items: string[]) => {
     for (let key in scripts) {
       let res = scripts[key](item);
       if (res) {
-        syntax += `.${ res.selector } {`
+        let selector = `.${breakpoint}\\:${res.selector}`;
+        syntax += `${ addSlashes(selector) } {`
                + `${ res.value }`
                + `}`
       }
