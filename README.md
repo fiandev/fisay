@@ -21,7 +21,11 @@ npm install
 
 ```shell
 # example command
-fisay compile <input> <output> [options]
+fisay compile -i <input> -o <output> [options]
+
+
+# watcher
+fisay compile -i <input> -o <output> -w
 
 # show list of commands
 fisay --help
