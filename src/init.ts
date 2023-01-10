@@ -2,6 +2,8 @@ import fs from "fs";
 import path from "path";
 import * as pkg from '../package.json';
 import minify from "./helpers/minify";
+import defaultConfig from "./constants/defaultConfig"
+import message from "./lib/Message";
 
 const scripts = require('require-all')({
   dirname: path.join(__dirname, "/scripts"),
@@ -16,6 +18,26 @@ for (let file of files) {
 }
 
 globalThis.blob = minify(globalThis.blob);
+
+let pwd = process.cwd();
+let pathfile = path.join(pwd, "./fisay-config.json");
+let fileConfig = fs.existsSync(pathfile) ? fs.readFileSync(pathfile, "utf8") : JSON.stringify(defaultConfig);
+
+try {
+  let config = JSON.parse(fileConfig);
+  
+  /* load & parse config */
+  for (let key in defaultConfig) {
+    if (typeof config[key] === "undefined") config[key] = defaultConfig[key];
+  }
+  
+  /* passing config */
+  globalThis.config = config;
+} catch (err) {
+  message.danger("invalid file config, please check your file config!");
+  process.exit();
+}
+
 
 export = {
   pkg,

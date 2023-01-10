@@ -1,3 +1,6 @@
-import app from "./bin/index";
+import App from "./bin/App";
 
-app.parse();
+if (typeof process === "undefined") throw new Error("sorry, not supported via browser");
+
+let app = new App("node");
+app.start();

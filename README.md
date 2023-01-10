@@ -19,6 +19,7 @@ npm install
 
 ## compile file html to css
 
+input can be path of file or directory.
 ```shell
 # example command
 fisay compile -i <input> -o <output> [options]

@@ -13,6 +13,7 @@ export default class {
   private input: string;
   private output: string;
   private __output__: string;
+  private config: object;
   
   public constructor (input: string, output: string) {
     /* initialize attributes */
@@ -21,6 +22,7 @@ export default class {
     
     // resolving path output
     this.__output__ = path.resolve(this.output);
+    this.config = globalThis.config;
   }
   
   public async run () {
@@ -58,6 +60,12 @@ export default class {
   }
   
   private async compile (input: string) {
+    // get extension of file input
+    let extension = path.extname(path.resolve(input)).slice(1);
+    
+    // ignore file when extension now allowed
+    if ( !this.config.allowedExtension.includes(extension) ) return;
+    
     const blob = fs.readFileSync(path.resolve(input));
     const $ = cheerio.load(blob);
     

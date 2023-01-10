@@ -29,6 +29,8 @@ const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const pkg = __importStar(require("../package.json"));
 const minify_1 = __importDefault(require("./helpers/minify"));
+const defaultConfig_1 = __importDefault(require("./constants/defaultConfig"));
+const Message_1 = __importDefault(require("./lib/Message"));
 const scripts = require('require-all')({
     dirname: path_1.default.join(__dirname, "/scripts"),
     recursive: true
@@ -39,6 +41,23 @@ for (let file of files) {
     globalThis.blob += fs_1.default.readFileSync(path_1.default.join(__dirname, `/../../sass/${file}`));
 }
 globalThis.blob = (0, minify_1.default)(globalThis.blob);
+let pwd = process.cwd();
+let pathfile = path_1.default.join(pwd, "./fisay-config.json");
+let fileConfig = fs_1.default.existsSync(pathfile) ? fs_1.default.readFileSync(pathfile, "utf8") : JSON.stringify(defaultConfig_1.default);
+try {
+    let config = JSON.parse(fileConfig);
+    /* load & parse config */
+    for (let key in defaultConfig_1.default) {
+        if (typeof config[key] === "undefined")
+            config[key] = defaultConfig_1.default[key];
+    }
+    /* passing config */
+    globalThis.config = config;
+}
+catch (err) {
+    Message_1.default.danger("invalid file config, please check your file config!");
+    process.exit();
+}
 module.exports = {
     pkg,
     scripts
