@@ -1,5 +1,5 @@
 # fisay css
-A framework css like a tailwind and have template like boostrap.
+A framework css like a tailwind.
 
 ------
 # how to usage
@@ -23,7 +23,6 @@ input can be path of file or directory.
 ```shell
 # example command
 fisay compile -i <input> -o <output> [options]
-
 
 # watcher
 fisay compile -i <input> -o <output> -w
