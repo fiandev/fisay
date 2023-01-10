@@ -19,6 +19,7 @@ class default_1 {
         this.input = input;
         // resolving path output
         this.__output__ = path_1.default.resolve(this.output);
+        this.config = globalThis.config;
     }
     async run() {
         var _a;
@@ -51,6 +52,11 @@ class default_1 {
         });
     }
     async compile(input) {
+        // get extension of file input
+        let extension = path_1.default.extname(path_1.default.resolve(input)).slice(1);
+        // ignore file when extension now allowed
+        if (!this.config.allowedExtension.includes(extension))
+            return;
         const blob = fs_1.default.readFileSync(path_1.default.resolve(input));
         const $ = cheerio_1.default.load(blob);
         // clear result files

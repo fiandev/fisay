@@ -15,7 +15,7 @@ class Message {
   }
   
   public info (text: string) {
-    this.console( this.generate(text, "#00ff13") );
+    this.console( this.generate(text, "#0798ff") );
   }
   
   public warning (text: string) {

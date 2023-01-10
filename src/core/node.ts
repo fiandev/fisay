@@ -23,7 +23,7 @@ program
 program
 .command("compile")
 .usage("[options]")
-.description("read file to conpile class selector into css")
+.description("read file to compile class selector into css")
 .option("-i, --input <input>", "path file input to compile")
 .option("-o, --output <output>", "path file output from compile")
 .option("-w, --watch [watch]", "path file / folder watched")

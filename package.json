@@ -9,9 +9,8 @@
   "homepage": "https://github.com/fiandev/fisay#readme",
   "scripts": {
     "build": "rm -rf ./build && tsc --build && echo 'build success :)'",
-    "test": "fisay compile -i ./__test__/index.html -o ./__test__/css/style.css",
-    "test2": "fisay compile -i ./__test__/test_folder -o ./__test__/css/style.css",
-    "test3": "fisay compile -i ./__test__/ -o ./__test__/css/new.css -w",
+    "test": "fisay compile -i ./__test__/index.html -o ./__test__/css/out.css",
+    "test-watcher": "fisay compile -i ./__test__/ -o ./__test__/css/out.css -w",
     "dev": "./node_modules/.bin/nodemon"
   },
   "bin": {

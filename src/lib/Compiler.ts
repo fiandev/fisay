@@ -13,7 +13,7 @@ export default class {
   private input: string;
   private output: string;
   private __output__: string;
-  private config: object;
+  private config: any;
   
   public constructor (input: string, output: string) {
     /* initialize attributes */

@@ -11,8 +11,7 @@ declare const _default: {
         scripts: {
             build: string;
             test: string;
-            test2: string;
-            test3: string;
+            "test-watcher": string;
             dev: string;
         };
         bin: {

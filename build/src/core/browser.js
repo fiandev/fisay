@@ -1,20 +1,6 @@
-/*
-import init from "../init";
-import Compiler from "../lib/browser/Compiler";
-
-export default class Program {
-  constructor () {
-    this.pkg = init.pkg;
-  }
-  
-  public parse () {
-    const config = window.Fisay.config;
-    
-    let input = config.input;
-    let output = config.output;
-    let compiler = new Compiler(input, output);
-    
-    compiler.run();
-  }
-}
-*/ 
+const pkg = require("../../package.json");
+if (typeof process !== "undefined")
+    throw new Error("sorry, not supported via node");
+const compiler = require("../lib/browser/Compiler");
+document.addEventListener("DOMContentLoaded", function () {
+});

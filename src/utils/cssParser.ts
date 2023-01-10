@@ -24,7 +24,7 @@ const cssParser = (syntax: string, output: string) => {
         fs.writeFileSync(output, syntax);
         fs.writeFileSync(fileSass, syntax);
       } catch(e) {
-        Message.info(`generate folder at ${ path.basename(outdir) }`);
+        Message.success(`generate folder at ${ output }`);
         fs.mkdirSync( outdir );
         fs.writeFileSync(fileSass, syntax);
       } finally {

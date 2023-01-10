@@ -3,5 +3,6 @@ module.exports = {
     minified: false,
     input: "./",
     output: "./css/output.css",
-    watch: false
+    watch: false,
+    allowedExtension: ["js", "html", "php", "jsx"]
 };

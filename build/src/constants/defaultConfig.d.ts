@@ -3,5 +3,6 @@ declare const _default: {
     input: string;
     output: string;
     watch: boolean;
+    allowedExtension: string[];
 };
 export = _default;

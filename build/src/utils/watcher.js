@@ -4,8 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const node_watch_1 = __importDefault(require("node-watch"));
 const path_1 = __importDefault(require("path"));
+const Message_1 = __importDefault(require("../lib/Message"));
 const watcher = async (pathTarget, callback) => {
     callback();
+    Message_1.default.info("watching file changed...");
     (0, node_watch_1.default)(pathTarget, {
         filter: /\.(htm(l)|js|jsx|vue|php)$/,
         recursive: true

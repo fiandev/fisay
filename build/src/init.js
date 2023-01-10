@@ -42,8 +42,13 @@ for (let file of files) {
 }
 globalThis.blob = (0, minify_1.default)(globalThis.blob);
 let pwd = process.cwd();
-let pathfile = path_1.default.join(pwd, "./fisay-config.json");
-let fileConfig = fs_1.default.existsSync(pathfile) ? fs_1.default.readFileSync(pathfile, "utf8") : JSON.stringify(defaultConfig_1.default);
+let pathfile = path_1.default.join(pwd, "./fisay.config.json");
+let isFileConfigExist = fs_1.default.existsSync(pathfile);
+let fileConfig = isFileConfigExist ? fs_1.default.readFileSync(pathfile, "utf8") : JSON.stringify(defaultConfig_1.default);
+if (isFileConfigExist)
+    Message_1.default.warning("file config is exist, use it!");
+else
+    Message_1.default.info("file config not found, use default configuration!");
 try {
     let config = JSON.parse(fileConfig);
     /* load & parse config */

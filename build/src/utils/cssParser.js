@@ -26,7 +26,7 @@ const cssParser = (syntax, output) => {
                 fs_1.default.writeFileSync(fileSass, syntax);
             }
             catch (e) {
-                Message_1.default.info(`generate folder at ${path_1.default.basename(outdir)}`);
+                Message_1.default.success(`generate folder at ${output}`);
                 fs_1.default.mkdirSync(outdir);
                 fs_1.default.writeFileSync(fileSass, syntax);
             }
