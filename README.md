@@ -6,6 +6,7 @@ A framework css like a tailwind.
 
 ## installation
 
+### clone repository
 ```shell
 # clone git repository
 git clone https://github.com/fiandev/fisay
@@ -17,9 +18,18 @@ cd fisay
 npm install
 ```
 
+### install from npm
+
+```shell
+# install in global
+
+npm install fisay -g
+```
+
 ## compile file html to css
 
 input can be path of file or directory.
+
 ```shell
 # example command
 fisay compile -i <input> -o <output> [options]
