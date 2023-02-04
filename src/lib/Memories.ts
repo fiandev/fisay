@@ -22,7 +22,7 @@ export default class {
   }
   
   private isBreakPoint(text: any) {
-    return text.match(/\s?(\w+):\s?((\w|\-|\s)+)/);
+    return text.match(/\s?(\w+):\s?((\w|\-|\S)+)/);
   }
   
   private isNormalScope(text: any) {

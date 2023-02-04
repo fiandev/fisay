@@ -20,7 +20,7 @@ class default_1 {
         }
     }
     isBreakPoint(text) {
-        return text.match(/\s?(\w+):\s?((\w|\-|\s)+)/);
+        return text.match(/\s?(\w+):\s?((\w|\-|\S)+)/);
     }
     isNormalScope(text) {
         return !/\s?(\w+):\s?((\w|\-|\s)+)/.test(text);

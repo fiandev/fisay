@@ -31,8 +31,7 @@ export default class {
     if (isDir) await this.parseDirectory(this.input);
     else await this.compile(this.input);
     
-    const memories = globalThis.memory; 
-    
+    const memories = globalThis.memory;
     // normal breakpoint
     memories["normal"]?.map(v => propertiesParser(v));
     // delete globalThis.memory["normal"];

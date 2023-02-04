@@ -5,5 +5,5 @@
   ],
   "ext": ".ts",
   "ignore": [],
-  "exec": "rm -rf ./build && tsc --build"
+  "exec": "tsc --build"
 }
