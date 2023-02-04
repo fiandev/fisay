@@ -9,7 +9,6 @@ const css_gap = (attr) => {
     if (!match)
         return false;
     const [selector, prefix, value, customValue] = match;
-    console.log(match);
     let property = "gap";
     if (prefix && prefix === "x")
         property = "row-gap";

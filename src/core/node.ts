@@ -1,4 +1,5 @@
 import path from "path";
+import fs from "fs";
 import { Command } from "commander";
 import init from "../init";
 import watcher from "../utils/watcher";
@@ -19,6 +20,17 @@ program
 .version(pkg.version, "-v, --version", "show app version")
 .showSuggestionAfterError()
 .helpOption("-h, --help", "show help menu");
+
+program
+.command("init")
+.usage("<command>")
+.description("initialize fisay configuration file")
+.action(() => {
+  let dest: string = path.join(pwd, `/${pkg.name}.config.json`);
+  let content: string = JSON.stringify(config, null, 2);
+  fs.writeFileSync(dest, content);
+  message.warning(`file config added at ./${path.basename(dest)}`);
+});
 
 program
 .command("compile")

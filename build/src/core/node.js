@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 const path_1 = __importDefault(require("path"));
+const fs_1 = __importDefault(require("fs"));
 const commander_1 = require("commander");
 const init_1 = __importDefault(require("../init"));
 const watcher_1 = __importDefault(require("../utils/watcher"));
@@ -21,6 +22,16 @@ program
     .version(pkg.version, "-v, --version", "show app version")
     .showSuggestionAfterError()
     .helpOption("-h, --help", "show help menu");
+program
+    .command("init")
+    .usage("<command>")
+    .description("initialize fisay configuration file")
+    .action(() => {
+    let dest = path_1.default.join(pwd, `/${pkg.name}.config.json`);
+    let content = JSON.stringify(config, null, 2);
+    fs_1.default.writeFileSync(dest, content);
+    Message_1.default.warning(`file config added at ./${path_1.default.basename(dest)}`);
+});
 program
     .command("compile")
     .usage("[options]")

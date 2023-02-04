@@ -42,11 +42,11 @@ for (let file of files) {
 }
 globalThis.blob = (0, minify_1.default)(globalThis.blob);
 let pwd = process.cwd();
-let pathfile = path_1.default.join(pwd, "./fisay.config.json");
+let pathfile = path_1.default.join(pwd, `./${pkg.name}.config.json`);
 let isFileConfigExist = fs_1.default.existsSync(pathfile);
 let fileConfig = isFileConfigExist ? fs_1.default.readFileSync(pathfile, "utf8") : JSON.stringify(defaultConfig_1.default);
 if (isFileConfigExist)
-    Message_1.default.warning("file config is exist, use it!");
+    Message_1.default.warning(`file config is exist at ./${path_1.default.basename(pathfile)}, use it!`);
 else
     Message_1.default.info("file config not found, use default configuration!");
 try {
