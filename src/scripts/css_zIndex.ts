@@ -1,5 +1,3 @@
-import addSlashes from "../utils/addSlashes";
-
 const css_zIndex = (attr: string) => {
   const format = /^z-(\[(\d+)\]|((10|20|30|40|50|60|70|80|90|100)))$/;
   let match = attr.match(format);

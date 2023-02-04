@@ -9,10 +9,31 @@ const Message_1 = __importDefault(require("../lib/Message"));
 const init_1 = __importDefault(require("../init"));
 const { pkg } = init_1.default;
 const executeParser = ({ from, output }) => {
-    child_process_1.default.exec(`sass ${from} ${output}`, (err, stdout, stderr) => {
-        if (err)
-            Message_1.default.danger(err.message);
-    });
+    let isSassInstalled;
+    try {
+        child_process_1.default.exec(`sass`, (err, stdout, stderr) => {
+            if (err)
+                Message_1.default.danger(err.message);
+        });
+        isSassInstalled = true;
+    }
+    catch (e) {
+        isSassInstalled = false;
+    }
+    finally {
+        if (isSassInstalled) {
+            child_process_1.default.exec(`sass ${from} ${output}`, (err, stdout, stderr) => {
+                if (err)
+                    Message_1.default.danger(err.message);
+            });
+        }
+        else {
+            child_process_1.default.exec(`../../node_modules/sass ${from} ${output}`, (err, stdout, stderr) => {
+                if (err)
+                    Message_1.default.danger(err.message);
+            });
+        }
+    }
 };
 const cssParser = (syntax, output) => {
     try {

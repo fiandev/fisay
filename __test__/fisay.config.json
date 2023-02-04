@@ -1,5 +1,12 @@
 {
-  "watch": true,
   "minified": false,
-  "output": "./css/out.css"
+  "input": "./",
+  "output": "./css/output.css",
+  "watch": false,
+  "allowedExtension": [
+    "js",
+    "html",
+    "php",
+    "jsx"
+  ]
 }

@@ -7,9 +7,25 @@ import init from "../init";
 const { pkg } = init;
 
 const executeParser = ({ from, output }) => {
-  child_process.exec(`sass ${ from } ${ output }`, (err, stdout, stderr) => {
-    if (err) Message.danger(err.message);
-  });
+  let isSassInstalled: boolean;
+  try {
+    child_process.exec(`sass`, (err, stdout, stderr) => {
+      if (err) Message.danger(err.message);
+    });
+    isSassInstalled = true;
+  } catch (e) {
+    isSassInstalled = false;
+  } finally {
+    if (isSassInstalled) {
+      child_process.exec(`sass ${ from } ${ output }`, (err, stdout, stderr) => {
+        if (err) Message.danger(err.message);
+      });
+    } else {
+      child_process.exec(`../../node_modules/sass ${ from } ${ output }`, (err, stdout, stderr) => {
+        if (err) Message.danger(err.message);
+      });
+    }
+  }
 }
 
 const cssParser = (syntax: string, output: string) => {
