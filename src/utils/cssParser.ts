@@ -1,19 +1,26 @@
 import fs from "fs";
 import path from "path";
 import sass from "sass";
+import autoprefixer from "autoprefixer";
+import postcss from "postcss";
 import child_process from "child_process";
 import Message from "../lib/Message";
 import { pkg } from "../init";
 
 const executeParser = ({ syntax, output, outdir }) => {
   let filename = path.basename(output);
-  const result =  sass.compileString(syntax, {
+  const compiled = sass.compileString(syntax, {
     sourceMap: globalThis.config.sourceMap, 
     style: globalThis.config.minified ? "compressed" : "expanded"
   });
   
-  if (result["sourceMap"]) fs.writeFileSync(`${outdir}/${filename}.map`, JSON.stringify(result.sourceMap, null, 2));
-  fs.writeFileSync(output, result.css);
+  postcss([ autoprefixer(pkg.browserslist.production) ])      
+  .process(compiled.css)
+  .then(function(result) {
+    fs.writeFileSync(output, result.css);
+  })
+  
+  if (compiled["sourceMap"]) fs.writeFileSync(`${outdir}/${filename}.map`, JSON.stringify(compiled.sourceMap, null, 2));
   
   Message.success(`success compiled to ${outdir}/${filename}`);
 }

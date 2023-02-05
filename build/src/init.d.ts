@@ -25,20 +25,27 @@ export declare const pkg: {
     author: string;
     license: string;
     dependencies: {
+        autoprefixer: string;
         chalk: string;
         cheerio: string;
         commander: string;
         "fs-extra": string;
         "fs-readdir-recursive": string;
-        sass: string;
         "node-watch": string;
+        postcss: string;
         "require-all": string;
+        sass: string;
     };
     devDependencies: {
+        "@types/autoprefixer": string;
         "@types/node": string;
         "@types/require-all": string;
         nodemon: string;
         typescript: string;
+    };
+    browserslist: {
+        production: string[];
+        development: string[];
     };
 };
 export declare const scripts: any;
