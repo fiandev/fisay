@@ -11,7 +11,9 @@
     "build": "rm -rf ./build && tsc --build && echo 'build success :)'",
     "test": "fisay compile -i ./__test__/index.html -o ./__test__/css/out.css",
     "test-watcher": "fisay compile -i ./__test__/ -o ./__test__/css/out.css -w",
-    "dev": "./node_modules/.bin/nodemon"
+    "dev": "./node_modules/.bin/nodemon",
+    "bundle-min-css": "./node_modules/.bin/sass ./sass/components.scss:./dist/css/fisay.bundle.min.css -s 'compressed' --no-source-map -w",
+    "bundle-css": "./node_modules/.bin/sass ./sass/components.scss:./dist/css/fisay.bundle.css -s 'expanded' --no-source-map -w"
   },
   "bin": {
     "fisay": "./bin/fisay"

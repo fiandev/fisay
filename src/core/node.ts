@@ -1,13 +1,12 @@
 import path from "path";
 import fs from "fs";
 import { Command } from "commander";
-import init from "../init";
+import { pkg } from "../init";
 import watcher from "../utils/watcher";
 import Compiler from "../lib/Compiler";
 import message from "../lib/Message";
 
 /* initilize */
-const { pkg } = init;
 const program = new Command();
 const pwd = process.cwd();
 const config = globalThis.config;
@@ -43,8 +42,8 @@ program
   if (!options.input && !config.input) message.danger("need options input [-i, --input]");
   if (!options.output && !config.output) message.danger("need options input [-o, --output]");
   
-  let input = options.input ? path.join(pwd, options.input) : config.input;
-  let output = options.output ? path.join(pwd, options.output) : config.output;
+  let input = options.input ? path.join(pwd, options.input) : path.join(pwd, config.input);
+  let output = options.output ? path.join(pwd, options.output) : path.join(pwd, config.output);
   let isWatched = options.watch ? true : config.watch;
   
   const compiler = new Compiler(input, output);

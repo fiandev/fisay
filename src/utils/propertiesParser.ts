@@ -1,6 +1,5 @@
-import init from "../init";
+import { scripts } from "../init";
 import addSlashes from "../utils/addSlashes";
-const { scripts } = init;
 
 const propertiesParser = (attr: string) => {
   let syntax = "";

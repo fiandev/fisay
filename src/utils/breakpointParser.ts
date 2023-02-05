@@ -1,9 +1,7 @@
-import init from "../init";
+import { scripts } from "../init";
 import propertiesParser from "./propertiesParser";
 import addSlashes from "./addSlashes";
 import breakpointFormat from "../constants/breakpointFormat";
-
-const { scripts } = init;
 
 const breakpointParser = (breakpoint: string, items: string[]) => {
   const device = breakpointFormat[breakpoint] ? breakpointFormat[breakpoint] : "small";

@@ -25,26 +25,30 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.scssBlob = exports.scripts = exports.pkg = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
-const pkg = __importStar(require("../package.json"));
+const pJson = __importStar(require("../package.json"));
 const minify_1 = __importDefault(require("./helpers/minify"));
 const defaultConfig_1 = __importDefault(require("./constants/defaultConfig"));
 const Message_1 = __importDefault(require("./lib/Message"));
-const scripts = require('require-all')({
+const path_sass_includes = "/../../sass/includes";
+exports.pkg = pJson;
+exports.scripts = require('require-all')({
     dirname: path_1.default.join(__dirname, "/scripts"),
     recursive: true
 });
-const files = fs_1.default.readdirSync(path_1.default.join(__dirname, "/../../sass"));
+const files = fs_1.default.readdirSync(path_1.default.join(__dirname, path_sass_includes));
 /* declare global blob */
-globalThis.blob = "";
+let blob = "";
 /* includes mixin scss files */
 for (let file of files) {
-    globalThis.blob += fs_1.default.readFileSync(path_1.default.join(__dirname, `/../../sass/${file}`));
+    blob += fs_1.default.readFileSync(path_1.default.join(__dirname, `${path_sass_includes}/${file}`));
 }
-globalThis.blob = (0, minify_1.default)(globalThis.blob);
+exports.scssBlob = (0, minify_1.default)(blob);
 let pwd = process.cwd();
-let pathfile = path_1.default.join(pwd, `./${pkg.name}.config.json`);
+let pathfile = path_1.default.join(pwd, `./${exports.pkg.name}.config.json`);
 let isFileConfigExist = fs_1.default.existsSync(pathfile);
 let fileConfig = isFileConfigExist ? fs_1.default.readFileSync(pathfile, "utf8") : JSON.stringify(defaultConfig_1.default);
 if (isFileConfigExist)
@@ -65,7 +69,3 @@ catch (err) {
     Message_1.default.danger("invalid file config, please check your file config!");
     process.exit();
 }
-module.exports = {
-    pkg,
-    scripts
-};

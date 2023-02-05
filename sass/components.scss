@@ -1,0 +1,14 @@
+@import "./components/Card";
+@import "./components/Form";
+
+.card {
+  @include Card;
+}
+
+.form-control {
+  @include FormControl;
+}
+
+.input-group {
+  @include InputGroup;
+}

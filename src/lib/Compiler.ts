@@ -8,6 +8,7 @@ import Message from "./Message";
 import propertiesParser from "../utils/propertiesParser";
 import breakpointParser from "../utils/breakpointParser";
 import cssParser from "../utils/cssParser";
+import { scssBlob } from "../init";
 
 export default class {
   private input: string;
@@ -26,6 +27,10 @@ export default class {
   }
   
   public async run () {
+    /* set to default value */
+    if (globalThis["memory"]) delete globalThis["memory"];
+    globalThis["blob"] = scssBlob;
+     
     /* check if target input is directory */
     let isDir = fs.lstatSync(this.input).isDirectory();
     if (isDir) await this.parseDirectory(this.input);
@@ -34,12 +39,10 @@ export default class {
     const memories = globalThis.memory;
     // normal breakpoint
     memories["normal"]?.map(v => propertiesParser(v));
-    // delete globalThis.memory["normal"];
     
     // breakpoint
     for (let breakpoint in memories) {
       if (breakpoint !== "normal") await breakpointParser(breakpoint, memories[breakpoint]);
-      // delete globalThis.memory[breakpoint];
     }
     
     let blob = globalThis.blob;

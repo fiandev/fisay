@@ -1,26 +1,29 @@
 import fs from "fs";
 import path from "path";
-import * as pkg from '../package.json';
+import * as pJson from '../package.json';
 import minify from "./helpers/minify";
 import defaultConfig from "./constants/defaultConfig"
 import message from "./lib/Message";
 
-const scripts = require('require-all')({
+const path_sass_includes = "/../../sass/includes";
+
+export const pkg = pJson;
+export const scripts = require('require-all')({
   dirname: path.join(__dirname, "/scripts"),
   recursive: true
 });
 
-const files = fs.readdirSync(path.join(__dirname, "/../../sass"));
+const files = fs.readdirSync(path.join(__dirname, path_sass_includes));
 
 /* declare global blob */
-globalThis.blob = "";
+let blob = "";
 
 /* includes mixin scss files */
 for (let file of files) {
-  globalThis.blob += fs.readFileSync(path.join(__dirname, `/../../sass/${ file }`));
+  blob += fs.readFileSync(path.join(__dirname, `${path_sass_includes}/${ file }`));
 }
 
-globalThis.blob = minify(globalThis.blob);
+export const scssBlob = minify(blob);
 
 let pwd = process.cwd();
 let pathfile = path.join(pwd, `./${pkg.name}.config.json`);
@@ -43,10 +46,4 @@ try {
 } catch (err) {
   message.danger("invalid file config, please check your file config!");
   process.exit();
-}
-
-
-export = {
-  pkg,
-  scripts
 }

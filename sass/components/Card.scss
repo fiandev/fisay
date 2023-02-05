@@ -1,0 +1,9 @@
+@import "./utilities/mixins";
+@import "./utilities/colors";
+
+@mixin Card () {
+  @include FlexBox(column, 2);
+  padding: .2rem;
+  border: solid .5px $gray;
+  @content
+}

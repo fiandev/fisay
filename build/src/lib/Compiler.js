@@ -12,6 +12,7 @@ const Message_1 = __importDefault(require("./Message"));
 const propertiesParser_1 = __importDefault(require("../utils/propertiesParser"));
 const breakpointParser_1 = __importDefault(require("../utils/breakpointParser"));
 const cssParser_1 = __importDefault(require("../utils/cssParser"));
+const init_1 = require("../init");
 class default_1 {
     constructor(input, output) {
         /* initialize attributes */
@@ -23,6 +24,10 @@ class default_1 {
     }
     async run() {
         var _a;
+        /* set to default value */
+        if (globalThis["memory"])
+            delete globalThis["memory"];
+        globalThis["blob"] = init_1.scssBlob;
         /* check if target input is directory */
         let isDir = fs_1.default.lstatSync(this.input).isDirectory();
         if (isDir)
@@ -32,12 +37,10 @@ class default_1 {
         const memories = globalThis.memory;
         // normal breakpoint
         (_a = memories["normal"]) === null || _a === void 0 ? void 0 : _a.map(v => (0, propertiesParser_1.default)(v));
-        // delete globalThis.memory["normal"];
         // breakpoint
         for (let breakpoint in memories) {
             if (breakpoint !== "normal")
                 await (0, breakpointParser_1.default)(breakpoint, memories[breakpoint]);
-            // delete globalThis.memory[breakpoint];
         }
         let blob = globalThis.blob;
         blob.replace(/(undefined)/g, "");

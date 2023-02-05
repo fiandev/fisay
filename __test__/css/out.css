@@ -1,4 +1,4 @@
-html, body, ::before, ::after {
+*, ::before, ::after {
   box-sizing: border-box;
   border-width: 0;
   border-style: solid;
@@ -155,122 +155,38 @@ img, video {
   display: none;
 }
 
-.z-10 {
-  z-index: 10;
+.grid {
+  display: grid;
 }
 
 .flex {
   display: flex;
 }
 
-.justify-center {
-  justify-content: center;
+.p-8 {
+  border: 1.6rem;
+}
+
+.p-8 {
+  border: 1.6rem;
+}
+
+.p-8 {
+  padding: 1.6rem;
+}
+
+.m-0 {
+  margin: 0rem;
 }
 
 .items-center {
   align-items: center;
 }
 
-.z-90 {
-  z-index: 90;
+.justify-center {
+  justify-content: center;
 }
 
-.grid {
-  display: grid;
-}
-
-.gap-x-1 {
-  row-gap: 0.2rem;
-}
-
-.items-start {
-  align-items: start;
-}
-
-.items-end {
-  align-items: end;
-}
-
-.grid-cols-6 {
-  grid-template-columns: repeat(6, 1fr);
-}
-
-.items-evenly {
-  align-items: evenly;
-}
-
-.p-2 {
-  border: 0.4rem;
-}
-
-.p-2 {
-  border: 0.4rem;
-}
-
-.p-2 {
-  padding: 0.4rem;
-}
-
-.rounded-md {
-  border: 8px;
-}
-
-.rounded-lg {
-  border: 10px;
-}
-
-.px-10 {
-  padding: 0 2rem;
-}
-
-.py-12 {
-  padding: 2.4rem 0;
-}
-
-.p-\[3px\] {
-  padding: 3px;
-}
-
-.gap-x-\[10rem\] {
-  row-gap: 10rem;
-}
-
-.gap-18 {
-  gap: 3.6rem;
-}
-
-.gap-y-20 {
-  column-gap: 4rem;
-}
-
-.rounded-full {
-  border: 9999px;
-}
-
-@media only screen and (max-width: 575px) {
-  .sm\:grid-cols-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .sm\:gap-4 {
-    gap: 0.8rem;
-  }
-}
-@media only screen and (min-width: 576px) {
-  .md\:gap-\[2rem\] {
-    gap: 2rem;
-  }
-  .md\:grid-cols-4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .md\:rounded-\[5px\] {
-    border: 5px;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .lg\:grid-cols-5 {
-    grid-template-columns: repeat(5, 1fr);
-  }
-  .lg\:mb-8 {
-    margin-bottom: 1.6rem;
-  }
+.z-20 {
+  z-index: 20;
 }

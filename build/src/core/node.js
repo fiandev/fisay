@@ -5,21 +5,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const commander_1 = require("commander");
-const init_1 = __importDefault(require("../init"));
+const init_1 = require("../init");
 const watcher_1 = __importDefault(require("../utils/watcher"));
 const Compiler_1 = __importDefault(require("../lib/Compiler"));
 const Message_1 = __importDefault(require("../lib/Message"));
 /* initilize */
-const { pkg } = init_1.default;
 const program = new commander_1.Command();
 const pwd = process.cwd();
 const config = globalThis.config;
 /* program information */
 program
-    .name(pkg.name)
+    .name(init_1.pkg.name)
     .usage("<command> [options]")
     .argument("<command>", "command to execute")
-    .version(pkg.version, "-v, --version", "show app version")
+    .version(init_1.pkg.version, "-v, --version", "show app version")
     .showSuggestionAfterError()
     .helpOption("-h, --help", "show help menu");
 program
@@ -27,7 +26,7 @@ program
     .usage("<command>")
     .description("initialize fisay configuration file")
     .action(() => {
-    let dest = path_1.default.join(pwd, `/${pkg.name}.config.json`);
+    let dest = path_1.default.join(pwd, `/${init_1.pkg.name}.config.json`);
     let content = JSON.stringify(config, null, 2);
     fs_1.default.writeFileSync(dest, content);
     Message_1.default.warning(`file config added at ./${path_1.default.basename(dest)}`);
@@ -44,8 +43,8 @@ program
         Message_1.default.danger("need options input [-i, --input]");
     if (!options.output && !config.output)
         Message_1.default.danger("need options input [-o, --output]");
-    let input = options.input ? path_1.default.join(pwd, options.input) : config.input;
-    let output = options.output ? path_1.default.join(pwd, options.output) : config.output;
+    let input = options.input ? path_1.default.join(pwd, options.input) : path_1.default.join(pwd, config.input);
+    let output = options.output ? path_1.default.join(pwd, options.output) : path_1.default.join(pwd, config.output);
     let isWatched = options.watch ? true : config.watch;
     const compiler = new Compiler_1.default(input, output);
     if (isWatched)

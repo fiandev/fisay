@@ -3,39 +3,37 @@ import path from "path";
 import sass from "sass";
 import child_process from "child_process";
 import Message from "../lib/Message";
-import init from "../init";
+import { pkg } from "../init";
 
-const { pkg } = init;
-
-const executeParser = ({ from, output }) => {
-  const result =  sass.compile(from, {
-    sourceMap: true,
+const executeParser = ({ syntax, output, outdir }) => {
+  let filename = path.basename(output);
+  const result =  sass.compileString(syntax, {
+    sourceMap: globalThis.config.sourceMap, 
     style: globalThis.config.minified ? "compressed" : "expanded"
   });
   
-  fs.writeFileSync(output, result.css)
+  if (result["sourceMap"]) fs.writeFileSync(`${outdir}/${filename}.map`, JSON.stringify(result.sourceMap, null, 2));
+  fs.writeFileSync(output, result.css);
+  
+  Message.success(`success compiled to ${outdir}/${filename}`);
 }
 
 const cssParser = (syntax: string, output: string) => {
   try {
     let isExist = fs.existsSync(output);
     let outdir = path.dirname(output);
-    let fileSass = `${ outdir }/blob.scss`;
-    
-    globalThis.fileSass =  fileSass;
     
     if (!isExist) {
       try {
         fs.writeFileSync(output, syntax);
-        fs.writeFileSync(fileSass, syntax);
       } catch(e) {
         Message.success(`generate folder at ${ output }`);
         fs.mkdirSync( outdir );
-        fs.writeFileSync(fileSass, syntax);
       } finally {
         executeParser({
-          from: fileSass,
-          output: output
+          syntax: syntax,
+          output: output,
+          outdir: outdir
         });
       }
     }
