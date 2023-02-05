@@ -1,4 +1,5 @@
 import init from "../init";
+import addSlashes from "../utils/addSlashes";
 const { scripts } = init;
 
 const propertiesParser = (attr: string) => {
@@ -6,7 +7,7 @@ const propertiesParser = (attr: string) => {
   for (let key in scripts) {
     let res = scripts[key](attr);
     if (res) {
-      syntax += `.${ res.selector } {`
+      syntax += `.${ addSlashes(res.selector) } {`
              + `${ res.value }`
              + `}`
      globalThis.blob += syntax;

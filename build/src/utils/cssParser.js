@@ -4,36 +4,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
-const child_process_1 = __importDefault(require("child_process"));
+const sass_1 = __importDefault(require("sass"));
 const Message_1 = __importDefault(require("../lib/Message"));
 const init_1 = __importDefault(require("../init"));
 const { pkg } = init_1.default;
 const executeParser = ({ from, output }) => {
-    let isSassInstalled;
-    try {
-        child_process_1.default.exec(`sass`, (err, stdout, stderr) => {
-            if (err)
-                Message_1.default.danger(err.message);
-        });
-        isSassInstalled = true;
-    }
-    catch (e) {
-        isSassInstalled = false;
-    }
-    finally {
-        if (isSassInstalled) {
-            child_process_1.default.exec(`sass ${from} ${output}`, (err, stdout, stderr) => {
-                if (err)
-                    Message_1.default.danger(err.message);
-            });
-        }
-        else {
-            child_process_1.default.exec(`../../node_modules/sass ${from} ${output}`, (err, stdout, stderr) => {
-                if (err)
-                    Message_1.default.danger(err.message);
-            });
-        }
-    }
+    const result = sass_1.default.compile(from, {
+        sourceMap: true,
+        style: globalThis.config.minified ? "compressed" : "expanded"
+    });
+    fs_1.default.writeFileSync(output, result.css);
 };
 const cssParser = (syntax, output) => {
     try {

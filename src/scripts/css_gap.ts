@@ -1,7 +1,8 @@
+import { PREFIX_VALUES } from "../constants/standardSize";
 import parsePropertyValues from "../utils/parsePropertyValues";
 
 const css_gap = (attr: string) => {
-  const format = /^gap\-?(y|x)?\-(\[(\w+)\]|((1|2|3|4|6|8|10|12)))$/;
+  const format = new RegExp(`^gap\-?(y|x)?\-(\\[(\\w+)\\]|(((${ PREFIX_VALUES.join("|") })+)))$`);
   let match = attr.match(format);
   
   if (!match) return false;
@@ -12,7 +13,7 @@ const css_gap = (attr: string) => {
   if (prefix && prefix === "y") property = "column-gap";
   
   return {
-    selector: selector.replace(/\[/, "\[").replace(/\]/, "\]"),
+    selector: selector,
     value: `${property}: ${ /(\[|\])/.test(value) ? customValue : parsePropertyValues(value) };`
   }
 }

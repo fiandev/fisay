@@ -1,3 +1,3 @@
-export default function parsePropertyValues (property) {
-  return `${property * 0.2}rem`;
+export default function parsePropertyValues (value) {
+  return `${(value * 0.2).toFixed(2)}rem`;
 }

@@ -38,11 +38,14 @@ export default class {
     
     // breakpoint
     for (let breakpoint in memories) {
-      if (breakpoint !== "normal") breakpointParser(breakpoint, memories[breakpoint]);
+      if (breakpoint !== "normal") await breakpointParser(breakpoint, memories[breakpoint]);
       // delete globalThis.memory[breakpoint];
     }
     
-    const blobCSS = globalThis.blob.replace(/(undefined)/g, "");
+    let blob = globalThis.blob;
+    blob.replace(/(undefined)/g, "");
+    
+    const blobCSS = blob;
     cssParser(blobCSS, this.__output__);
     
     Message.warning(`task completed!`);

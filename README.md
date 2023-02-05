@@ -1,7 +1,8 @@
 # fisay css
 A framework css like a tailwind.
 
-------
+--------------
+
 # how to usage
 
 ## installation
@@ -34,6 +35,7 @@ npm install fisay -g
 ## compile file html to css
 
 input can be path of file or directory.
+
 
 ```shell
 # example command

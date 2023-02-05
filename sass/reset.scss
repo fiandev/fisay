@@ -1,6 +1,8 @@
-*,
+html,
+body,
 ::before,
-::after {
+::after 
+{
   box-sizing: border-box;
   /* 1 */
   border-width: 0;

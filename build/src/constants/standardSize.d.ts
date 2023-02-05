@@ -13,3 +13,5 @@ export declare const WAY_PRERIX_VALUES: {
     r: string;
     l: string;
 };
+export declare const PREFIX_VALUES: any[];
+export declare const Z_INDEX_VALUES: any[];

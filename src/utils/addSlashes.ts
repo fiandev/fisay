@@ -1,8 +1,9 @@
 import specialCharacters from "../constants/specialCharacters";
 
 const addSlashes = (str: string) => {
-  return str
-    .replace(/\[/g, `\\[`)
-    .replace(/\]/g, `\\]`)
+  let text = str.replace(/\:/, "\\:")
+                .replace(/\]/, "\\]")
+                .replace(/\[/, "\\[")
+  return text;
 }
 export = addSlashes;

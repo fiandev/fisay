@@ -1,12 +1,14 @@
+import { Z_INDEX_VALUES } from "../constants/standardSize";
+
 const css_zIndex = (attr: string) => {
-  const format = /^z-(\[(\d+)\]|((10|20|30|40|50|60|70|80|90|100)))$/;
+  const format = new RegExp(`^z-(\[(\d+)\]|((${ Z_INDEX_VALUES.join("|") })))$`);
   let match = attr.match(format);
   
   if (!match) return false;
   const [selector, property, customValue] = match;
   
   return {
-    selector: selector.replace(/\[/, "\\[").replace(/\]/, "\\]"),
+    selector: selector,
     value: `z-index: ${ /(\[|\])/.test(property) ? customValue : property };`
   }
 }

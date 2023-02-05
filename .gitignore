@@ -21,4 +21,4 @@ yarn-error.log
 /.autogit
 
 # test
-/__test__/*.{css,css.map,scss}
+/__test__/**/*.{css,css.map,scss}

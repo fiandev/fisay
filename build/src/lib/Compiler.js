@@ -36,10 +36,12 @@ class default_1 {
         // breakpoint
         for (let breakpoint in memories) {
             if (breakpoint !== "normal")
-                (0, breakpointParser_1.default)(breakpoint, memories[breakpoint]);
+                await (0, breakpointParser_1.default)(breakpoint, memories[breakpoint]);
             // delete globalThis.memory[breakpoint];
         }
-        const blobCSS = globalThis.blob.replace(/(undefined)/g, "");
+        let blob = globalThis.blob;
+        blob.replace(/(undefined)/g, "");
+        const blobCSS = blob;
         (0, cssParser_1.default)(blobCSS, this.__output__);
         Message_1.default.warning(`task completed!`);
         Message_1.default.success(`success compile ${isDir ? "directory" : "file"} at ${path_1.default.basename(this.input)}`);

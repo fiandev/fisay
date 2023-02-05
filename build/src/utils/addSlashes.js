@@ -1,7 +1,8 @@
 "use strict";
 const addSlashes = (str) => {
-    return str
-        .replace(/\[/g, `\\[`)
-        .replace(/\]/g, `\\]`);
+    let text = str.replace(/\:/, "\\:")
+        .replace(/\]/, "\\]")
+        .replace(/\[/, "\\[");
+    return text;
 };
 module.exports = addSlashes;

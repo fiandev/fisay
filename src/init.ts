@@ -12,6 +12,9 @@ const scripts = require('require-all')({
 
 const files = fs.readdirSync(path.join(__dirname, "/../../sass"));
 
+/* declare global blob */
+globalThis.blob = "";
+
 /* includes mixin scss files */
 for (let file of files) {
   globalThis.blob += fs.readFileSync(path.join(__dirname, `/../../sass/${ file }`));

@@ -1,1 +1,1 @@
-export default function parsePropertyValues(property: any): string;
+export default function parsePropertyValues(value: any): string;
