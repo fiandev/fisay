@@ -1,5 +1,5 @@
 # fisay css
-A framework css like a tailwind.
+A framework css like a tailwind CSS and have utilities components like boostrap.
 
 --------------
 

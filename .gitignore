@@ -19,6 +19,3 @@ yarn-error.log
 
 # autogit config
 /.autogit
-
-# test
-/__test__/**/*.{css,css.map,scss}

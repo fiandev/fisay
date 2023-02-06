@@ -28,6 +28,7 @@ export declare const pkg: {
         autoprefixer: string;
         chalk: string;
         cheerio: string;
+        clear: string;
         commander: string;
         "fs-extra": string;
         "fs-readdir-recursive": string;
