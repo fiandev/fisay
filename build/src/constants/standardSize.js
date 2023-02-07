@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Z_INDEX_VALUES = exports.PREFIX_VALUES = exports.WAY_PRERIX_VALUES = exports.BORDER_PREFIX_VALUES = void 0;
+exports.Z_INDEX_VALUES = exports.COLUMNS_PREFIX_VALUES = exports.ASPECT_PREFIX_VALUES = exports.PREFIX_VALUES = exports.WAY_PRERIX_VALUES = exports.BORDER_PREFIX_VALUES = void 0;
 const functions_1 = require("../utils/functions");
 exports.BORDER_PREFIX_VALUES = {
     xs: "3px",
@@ -18,4 +18,10 @@ exports.WAY_PRERIX_VALUES = {
     l: "left"
 };
 exports.PREFIX_VALUES = (0, functions_1.getPrimeNumbers)(100);
+exports.ASPECT_PREFIX_VALUES = {
+    video: "16 / 9",
+    square: "1 / 1",
+    auto: "auto"
+};
+exports.COLUMNS_PREFIX_VALUES = Object.assign(Object.assign({}, (0, functions_1.ArrayToObject)((0, functions_1.getPrimeNumbers)(13, 1))), { "auto": "auto", "3xs": "16rem", "2xs": "18rem", "xs": "20rem", "sm": "24rem", "md": "28rem", "lg": "32rem", "xl": "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" });
 exports.Z_INDEX_VALUES = (0, functions_1.getPrimeNumbers)(100, 10);

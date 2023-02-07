@@ -1,5 +1,7 @@
 *, ::before, ::after {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
   border-width: 0;
   border-style: solid;
   border-color: #e5e7eb;
@@ -7,9 +9,12 @@
 html {
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
   tab-size: 4;
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   -webkit-font-feature-settings: normal;
+     -moz-font-feature-settings: normal;
           font-feature-settings: normal;
 } /*1. Remove the margin in all browsers.2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.*/
 body {
@@ -126,8 +131,27 @@ ol, ul, menu {
 textarea {
   resize: vertical;
 } /*1. Reset the default placeholder opacity in Firefox. (https:3300)2. Set the default placeholder color to the user's configured gray 400 color.*/
+input::-moz-placeholder, textarea::-moz-placeholder {
+  opacity: 1;
+  color: #9ca3af;
+}
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  opacity: 1;
+  color: #9ca3af;
+}
+
+input:-moz-placeholder, textarea:-moz-placeholder {
+  opacity: 1;
+  color: #9ca3af;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  opacity: 1;
+  color: #9ca3af;
+}
+
+input::-ms-input-placeholder, textarea::-ms-input-placeholder {
   opacity: 1;
   color: #9ca3af;
 }
@@ -160,15 +184,27 @@ img, video {
 }
 
 .flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 .justify-center {
-  justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .items-center {
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .z-90 {
@@ -184,11 +220,19 @@ img, video {
 }
 
 .items-start {
-  align-items: start;
+  -webkit-box-align: start;
+  -webkit-align-items: start;
+     -moz-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
 
 .items-end {
-  align-items: end;
+  -webkit-box-align: end;
+  -webkit-align-items: end;
+     -moz-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
 }
 
 .grid-cols-6 {
@@ -196,15 +240,11 @@ img, video {
 }
 
 .items-evenly {
-  align-items: evenly;
-}
-
-.p-2 {
-  border: 0.4rem;
-}
-
-.p-2 {
-  border: 0.4rem;
+  -webkit-box-align: evenly;
+  -webkit-align-items: evenly;
+     -moz-box-align: evenly;
+      -ms-flex-align: evenly;
+          align-items: evenly;
 }
 
 .p-2 {
@@ -241,6 +281,7 @@ img, video {
 
 .gap-y-20 {
   -webkit-column-gap: 4rem;
+     -moz-column-gap: 4rem;
           column-gap: 4rem;
 }
 

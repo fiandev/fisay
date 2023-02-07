@@ -16,6 +16,7 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/.esdoc.json
 
 # autogit config
 /.autogit

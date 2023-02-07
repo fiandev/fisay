@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPrimeNumbers = void 0;
+exports.ArrayToObject = exports.getPrimeNumbers = void 0;
 const getPrimeNumbers = (each = 10, divider = 2) => {
     var result = [];
     for (let i = 0; i < each; i++) {
@@ -12,3 +12,12 @@ const getPrimeNumbers = (each = 10, divider = 2) => {
     return result;
 };
 exports.getPrimeNumbers = getPrimeNumbers;
+const ArrayToObject = (arr) => {
+    let result = {};
+    arr.forEach(val => {
+        if (!result[val])
+            result[val] = val;
+    });
+    return result;
+};
+exports.ArrayToObject = ArrayToObject;

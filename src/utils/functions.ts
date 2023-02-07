@@ -7,3 +7,13 @@ export const getPrimeNumbers = (each: number = 10, divider: number = 2) => {
   
   return result;
 }
+
+
+export const ArrayToObject = (arr: any[]) => {
+  let result: object = {};
+  arr.forEach(val => {
+    if (!result[val]) result[val] = val;
+  })
+  
+  return result
+}
