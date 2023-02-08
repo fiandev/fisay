@@ -9,7 +9,7 @@
     "homepage": "https://github.com/fiandev/fisay#readme",
     "scripts": {
         "build": "rm -rf ./build && tsc --build && echo 'build success :)'",
-        "test": "fisay compile -i ./__test__/index.html -o ./__test__/css/out.css",
+        "test": "fisay compile -i ./__test__/ -o ./__test__/css/out.css",
         "test-watcher": "fisay compile -i ./__test__/ -o ./__test__/css/out.css -w",
         "dev": "./node_modules/.bin/nodemon",
         "bundle-min-css": "./node_modules/.bin/sass ./sass/components.scss:./dist/css/fisay.bundle.min.css -s 'compressed' --no-source-map -w",

@@ -45,4 +45,12 @@ export const COLUMNS_PREFIX_VALUES = {
   "7xl": "80rem",
 }
 
+export const BREAK_PREFIX_VALUES = {
+  ...ArrayToObject(["auto", "avoid", "all", "avoid-page", "page", "left", "right", "column"])
+}
+
+export const BREAK_DECORATION_PREFIX_VALUES = {
+  ...ArrayToObject(["clone", "slice"])
+}
+
 export const Z_INDEX_VALUES = getPrimeNumbers(100, 10);
