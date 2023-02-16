@@ -18,6 +18,15 @@ export const ArrayToObject = (arr: any[]) => {
   return result
 }
 
+export const getIterateNumbers = (start: number, end: number) => {
+  let result: number[] = [];
+  for (let i = 0; i < end; i++) {
+    let value = start + i;
+    result.push(value)
+  }
+  
+  return result;
+}
 
 export const getFractions = (denominator: number) => {
   let result = {};

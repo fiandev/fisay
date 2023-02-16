@@ -1,4 +1,4 @@
-import { getPrimeNumbers, getFractions, ArrayToObject } from "../utils/functions";
+import { getPrimeNumbers, getFractions, getIterateNumbers, ArrayToObject } from "../utils/functions";
 
 export const BORDER_PREFIX_VALUES = {
   xs: "3px",
@@ -18,6 +18,16 @@ export const WAY_PRERIX_VALUES = {
   l: "left"
 }
 
+export const FLEX_DIRECTION_PREFIX_VALUES = {
+  row: "row",
+  col: "column",
+  "row-reverse": "row-reverse",
+  "col-reverse": "column-reverse",
+}
+
+export const FLEX_WRAP_PREFIX_VALUES = {
+  ...ArrayToObject(["wrap", "nowrap", "wrap-reverse"])
+}
 
 export const PREFIX_VALUES = getPrimeNumbers(100);
 
@@ -46,13 +56,16 @@ export const COLUMNS_PREFIX_VALUES = {
 }
 
 export const FLEX_BASIS_PREFIX_VALUES = {
-  ...ArrayToObject(getPrimeNumbers(100)),
+  ...ArrayToObject(PREFIX_VALUES),
+  ...ArrayToObject(getIterateNumbers(0.5, 4)),
   ...getFractions(2),
   ...getFractions(3),
   ...getFractions(4),
   ...getFractions(5),
   ...getFractions(6),
-  "full": "100%"
+  ...getFractions(12),
+  "full": "100%",
+  "wuto": "auto",
 }
 
 export const BREAK_PREFIX_VALUES = {

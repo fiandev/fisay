@@ -13,6 +13,13 @@ export declare const WAY_PRERIX_VALUES: {
     r: string;
     l: string;
 };
+export declare const FLEX_DIRECTION_PREFIX_VALUES: {
+    row: string;
+    col: string;
+    "row-reverse": string;
+    "col-reverse": string;
+};
+export declare const FLEX_WRAP_PREFIX_VALUES: {};
 export declare const PREFIX_VALUES: any[];
 export declare const ASPECT_PREFIX_VALUES: {
     video: string;
@@ -37,6 +44,7 @@ export declare const COLUMNS_PREFIX_VALUES: {
 };
 export declare const FLEX_BASIS_PREFIX_VALUES: {
     full: string;
+    wuto: string;
 };
 export declare const BREAK_PREFIX_VALUES: {};
 export declare const BREAK_DECORATION_PREFIX_VALUES: {};

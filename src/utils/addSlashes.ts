@@ -5,6 +5,7 @@ const addSlashes = (str: string) => {
                 .replace(/\]/, "\\]")
                 .replace(/\[/, "\\[")
                 .replace("/", "\\/")
+                .replace(/\./, "\\.")
   return text;
 }
 export = addSlashes;

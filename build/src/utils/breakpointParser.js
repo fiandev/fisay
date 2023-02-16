@@ -13,8 +13,8 @@ const breakpointParser = (breakpoint, items) => {
         for (let key in init_1.scripts) {
             let res = init_1.scripts[key](item);
             if (res) {
-                let selector = (0, addSlashes_1.default)(`.${breakpoint}:${res.selector}`);
-                syntax += `${selector} {`
+                let selector = (0, addSlashes_1.default)(`${breakpoint}:${res.selector}`);
+                syntax += `.${selector} {`
                     + `${res.value}`
                     + `}`;
             }

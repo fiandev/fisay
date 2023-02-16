@@ -191,6 +191,16 @@ img, video {
   display: flex;
 }
 
+.flex-col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .p-8 {
   padding: 1.6rem;
 }
@@ -289,6 +299,12 @@ img, video {
   border: 10px;
 }
 
+.basis-1\.5 {
+  -webkit-flex-basis: 1.5;
+      -ms-flex-preferred-size: 1.5;
+          flex-basis: 1.5;
+}
+
 .px-10 {
   padding: 0 2rem;
 }
@@ -325,28 +341,53 @@ img, video {
   border: 9999px;
 }
 
-@media only screen and (max-width: 575px) {
-  .sm\:grid-cols-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .sm\:gap-4 {
-    gap: 0.8rem;
-  }
-}
 @media only screen and (min-width: 576px) {
+  .md\:flex-row-reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+       -moz-box-orient: horizontal;
+       -moz-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
   .md\:gap-\[2rem\] {
     gap: 2rem;
   }
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, 1fr);
   }
+  .md\:basis-0\.5 {
+    -webkit-flex-basis: 0.5;
+        -ms-flex-preferred-size: 0.5;
+            flex-basis: 0.5;
+  }
+  .md\:basis-1\/12 {
+    -webkit-flex-basis: 8.3333333333%;
+        -ms-flex-preferred-size: 8.3333333333%;
+            flex-basis: 8.3333333333%;
+  }
   .md\:rounded-\[5px\] {
     border: 5px;
   }
 }
 @media only screen and (min-width: 992px) {
+  .lg\:flex-row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+       -moz-box-orient: horizontal;
+       -moz-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
   .lg\:grid-cols-5 {
     grid-template-columns: repeat(5, 1fr);
+  }
+  .lg\:basis-3\.5 {
+    -webkit-flex-basis: 3.5;
+        -ms-flex-preferred-size: 3.5;
+            flex-basis: 3.5;
   }
   .lg\:mb-8 {
     margin-bottom: 1.6rem;
@@ -355,5 +396,13 @@ img, video {
     -webkit-flex-basis: 25%;
         -ms-flex-preferred-size: 25%;
             flex-basis: 25%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .sm\:gap-4 {
+    gap: 0.8rem;
   }
 }
