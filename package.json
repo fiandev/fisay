@@ -1,6 +1,6 @@
 {
   "name": "fisay",
-  "version": "0.2.0-development",
+  "version": "0.2.5-development",
   "description": "a css framework like tailwind css",
   "main": "build/src/index.js",
   "private": false,
