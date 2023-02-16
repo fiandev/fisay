@@ -18,7 +18,6 @@ program
 .argument("<command>", "command to execute")
 .version(pkg.version, "-v, --version", "show app version")
 .showSuggestionAfterError()
-.helpOption("-h, --help", "show help menu");
 
 program
 .command("init")
@@ -35,9 +34,9 @@ program
 .command("compile")
 .usage("[options]")
 .description("read file to compile class selector into css")
-.option("-i, --input <input>", "path file input to compile")
-.option("-o, --output <output>", "path file output from compile")
-.option("-w, --watch [watch]", "path file / folder watched")
+.option("-i, --input <input>", "path file/folder input to compile")
+.option("-o, --output <output>", "path file result output")
+.option("-w, --watch [watch]", "path file/folder for watched")
 .action((options) => {
   if (!options.input && !config.input) message.danger("need options input [-i, --input]");
   if (!options.output && !config.output) message.danger("need options input [-o, --output]");

@@ -1,4 +1,4 @@
-import { getPrimeNumbers, ArrayToObject } from "../utils/functions";
+import { getPrimeNumbers, getFractions, ArrayToObject } from "../utils/functions";
 
 export const BORDER_PREFIX_VALUES = {
   xs: "3px",
@@ -43,6 +43,16 @@ export const COLUMNS_PREFIX_VALUES = {
   "5xl": "64rem",
   "6xl": "72rem",
   "7xl": "80rem",
+}
+
+export const FLEX_BASIS_PREFIX_VALUES = {
+  ...ArrayToObject(getPrimeNumbers(100)),
+  ...getFractions(2),
+  ...getFractions(3),
+  ...getFractions(4),
+  ...getFractions(5),
+  ...getFractions(6),
+  "full": "100%"
 }
 
 export const BREAK_PREFIX_VALUES = {

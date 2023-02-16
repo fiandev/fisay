@@ -15,7 +15,7 @@
 - `~/build`
   output folder from compiling typescript
 - `~/dist`
-  output folder from compiling `~/sass/componente.scss`, This is used to create utility class components like a boostrap components
+  output folder from compiling `~/sass/components.scss`, This is used to create utility class components like a boostrap components
 - `~/src/scripts`
   the main folder for store functions to parsing utilities class like tailwind
 - `~/src/constants`

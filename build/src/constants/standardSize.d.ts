@@ -35,6 +35,9 @@ export declare const COLUMNS_PREFIX_VALUES: {
     "6xl": string;
     "7xl": string;
 };
+export declare const FLEX_BASIS_PREFIX_VALUES: {
+    full: string;
+};
 export declare const BREAK_PREFIX_VALUES: {};
 export declare const BREAK_DECORATION_PREFIX_VALUES: {};
 export declare const Z_INDEX_VALUES: any[];

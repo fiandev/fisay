@@ -297,6 +297,12 @@ img, video {
   padding: 2.4rem 0;
 }
 
+.basis-8 {
+  -webkit-flex-basis: 8;
+      -ms-flex-preferred-size: 8;
+          flex-basis: 8;
+}
+
 .p-\[3px\] {
   padding: 3px;
 }
@@ -344,5 +350,10 @@ img, video {
   }
   .lg\:mb-8 {
     margin-bottom: 1.6rem;
+  }
+  .lg\:basis-1\/4 {
+    -webkit-flex-basis: 25%;
+        -ms-flex-preferred-size: 25%;
+            flex-basis: 25%;
   }
 }

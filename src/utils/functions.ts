@@ -17,3 +17,14 @@ export const ArrayToObject = (arr: any[]) => {
   
   return result
 }
+
+
+export const getFractions = (denominator: number) => {
+  let result = {};
+  for (let i = 1; i < denominator; i++) {
+    let fraction = `${i}/${denominator}`;
+    result[fraction] = eval(fraction) * 100 + "%";
+  }
+  
+  return result;
+}
