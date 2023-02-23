@@ -7,6 +7,12 @@ export declare const BORDER_PREFIX_VALUES: {
     xxl: string;
     full: string;
 };
+export declare const FLEX_PREFIX_VALUES: {
+    "1": string;
+    auto: string;
+    initial: string;
+    none: string;
+};
 export declare const WAY_PRERIX_VALUES: {
     b: string;
     t: string;

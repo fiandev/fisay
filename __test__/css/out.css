@@ -183,6 +183,22 @@ img, video {
   display: grid;
 }
 
+.flex-1 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 0%;
+     -moz-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+}
+
+.flex-auto {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+     -moz-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
 .flex {
   display: -webkit-box;
   display: -webkit-flex;
@@ -348,6 +364,13 @@ img, video {
 }
 
 @media only screen and (min-width: 576px) {
+  .md\:flex-none {
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+       -moz-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+  }
   .md\:flex-nowrap {
     -webkit-flex-wrap: nowrap;
         -ms-flex-wrap: nowrap;
@@ -383,6 +406,13 @@ img, video {
   }
 }
 @media only screen and (min-width: 992px) {
+  .lg\:flex-initial {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+       -moz-box-flex: 0;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+  }
   .lg\:flex-row {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

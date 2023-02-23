@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Z_INDEX_VALUES = exports.BREAK_DECORATION_PREFIX_VALUES = exports.BREAK_PREFIX_VALUES = exports.FLEX_BASIS_PREFIX_VALUES = exports.COLUMNS_PREFIX_VALUES = exports.ASPECT_PREFIX_VALUES = exports.PREFIX_VALUES = exports.FLEX_WRAP_PREFIX_VALUES = exports.FLEX_DIRECTION_PREFIX_VALUES = exports.WAY_PRERIX_VALUES = exports.BORDER_PREFIX_VALUES = void 0;
+exports.Z_INDEX_VALUES = exports.BREAK_DECORATION_PREFIX_VALUES = exports.BREAK_PREFIX_VALUES = exports.FLEX_BASIS_PREFIX_VALUES = exports.COLUMNS_PREFIX_VALUES = exports.ASPECT_PREFIX_VALUES = exports.PREFIX_VALUES = exports.FLEX_WRAP_PREFIX_VALUES = exports.FLEX_DIRECTION_PREFIX_VALUES = exports.WAY_PRERIX_VALUES = exports.FLEX_PREFIX_VALUES = exports.BORDER_PREFIX_VALUES = void 0;
 const functions_1 = require("../utils/functions");
 exports.BORDER_PREFIX_VALUES = {
     xs: "3px",
@@ -10,6 +10,12 @@ exports.BORDER_PREFIX_VALUES = {
     xl: "12px",
     xxl: "14px",
     full: "9999px"
+};
+exports.FLEX_PREFIX_VALUES = {
+    "1": "1 1 0%",
+    auto: "1 1 auto",
+    initial: "0 1 auto",
+    none: "none"
 };
 exports.WAY_PRERIX_VALUES = {
     b: "bottom",

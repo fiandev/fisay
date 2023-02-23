@@ -10,6 +10,12 @@ export const BORDER_PREFIX_VALUES = {
   full: "9999px"
 }
 
+export const FLEX_PREFIX_VALUES = {
+  "1": "1 1 0%",
+  auto: "1 1 auto",
+  initial: "0 1 auto",
+  none: "none"
+}
 
 export const WAY_PRERIX_VALUES = {
   b: "bottom",
