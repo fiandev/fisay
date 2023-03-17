@@ -50,7 +50,7 @@
     "@types/node": "^18.11.9",
     "@types/require-all": "^3.0.3",
     "nodemon": "^2.0.20",
-    "typescript": "^4.9.4"
+    "typescript": "^5.0.2"
   },
   "browserslist": {
     "production": [
